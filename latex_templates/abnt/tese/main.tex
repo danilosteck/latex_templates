@@ -1,0 +1,96 @@
+% Trabalho acadêmico ABNT (NBR 14724) — tese, dissertação, TCC
+% Compile: pdflatex main && bibtex main && pdflatex main && pdflatex main
+
+\documentclass[
+  12pt,
+  oneside,
+  a4paper,
+  english,
+  brazil
+]{abntex2}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[alf]{abntex2cite}
+
+% --- Metadados (edite aqui) ---
+\titulo{Título do trabalho}
+\autor{Nome do Autor}
+\local{Cidade}
+\data{2026}
+\orientador{Nome do Orientador}
+\instituicao{%
+  Nome da Universidade
+  \par
+  Nome do Programa / Faculdade
+}
+\tipotrabalho{Dissertação (Mestrado)}
+\preambulo{Dissertação apresentada ao Programa X da Universidade Y
+como requisito parcial para obtenção do título de Mestre em Z.}
+
+\makeatletter
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  pdfsubject={\imprimirpreambulo},
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+\makeatother
+
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+\begin{document}
+\selectlanguage{brazil}
+\frenchspacing
+
+% Pré-textuais
+\imprimircapa
+\imprimirfolhaderosto
+
+\begin{resumo}
+Texto do resumo em português.
+
+\vspace{\onelineskip}
+\noindent\textbf{Palavras-chave}: palavra1. palavra2. palavra3.
+\end{resumo}
+
+\begin{resumo}[Abstract]
+\begin{otherlanguage*}{english}
+Abstract text in English.
+
+\vspace{\onelineskip}
+\noindent\textbf{Keywords}: keyword1. keyword2. keyword3.
+\end{otherlanguage*}
+\end{resumo}
+
+\tableofcontents*
+\textual
+
+\chapter{Introdução}
+
+Texto introdutório. Exemplo de citação: \cite{exemplo2020}.
+
+\section{Objetivos}
+
+Descreva os objetivos do trabalho.
+
+\chapter{Desenvolvimento}
+
+Desenvolva o conteúdo aqui.
+
+\chapter{Conclusão}
+
+Conclusão breve.
+
+\postextual
+\bibliography{refs}
+
+\end{document}

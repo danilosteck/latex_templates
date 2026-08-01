@@ -1,0 +1,82 @@
+% Artigo científico ABNT (NBR 6022) — abnTeX2
+% Compile: pdflatex main && bibtex main && pdflatex main && pdflatex main
+
+\documentclass[
+  article,
+  12pt,
+  oneside,
+  a4paper,
+  english,
+  brazil
+]{abntex2}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[alf]{abntex2cite}
+
+% --- Metadados (edite aqui) ---
+\titulo{Título do artigo}
+\tituloestrangeiro{Article title in English}
+\autor{Nome do Autor}
+\local{Brasil}
+\data{2026}
+
+\makeatletter
+\hypersetup{
+  pdftitle={\@title},
+  pdfauthor={\@author},
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+\makeatother
+
+\setlength{\parindent}{1.3cm}
+\SingleSpacing
+
+\begin{document}
+\selectlanguage{brazil}
+\frenchspacing
+
+\maketitle
+
+\begin{resumoumacoluna}
+Texto do resumo em português (até cerca de 250 palavras).
+
+\vspace{\onelineskip}
+\noindent\textbf{Palavras-chave}: palavra1. palavra2. palavra3.
+\end{resumoumacoluna}
+
+\renewcommand{\resumoname}{Abstract}
+\begin{resumoumacoluna}
+\begin{otherlanguage*}{english}
+Abstract text in English.
+
+\vspace{\onelineskip}
+\noindent\textbf{Keywords}: keyword1. keyword2. keyword3.
+\end{otherlanguage*}
+\end{resumoumacoluna}
+
+\textual
+
+\section{Introdução}
+
+Texto introdutório. Exemplo de citação: \cite{exemplo2020}.
+
+\section{Desenvolvimento}
+
+Desenvolva o conteúdo do artigo aqui.
+
+\section{Considerações finais}
+
+Conclusão breve.
+
+\postextual
+\bibliography{refs}
+
+\end{document}

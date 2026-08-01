@@ -1,0 +1,19 @@
+# LaTeX build
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+
+# Editor / OS
+*~
+*.swp
+.DS_Store
+Thumbs.db
