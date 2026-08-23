@@ -10,18 +10,33 @@
   brazil
 ]{abntex2}
 
-\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+
+% Fonte: Times New Roman (padrão). Para Arial, comente TIMES e descomente ARIAL.
+\usepackage{newtxtext,newtxmath}          % TIMES
+% \usepackage[scaled=0.95]{helvet}        % ARIAL
+% \renewcommand{\familydefault}{\sfdefault}
+
 \usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage[alf]{abntex2cite}
 
-% --- Metadados (edite aqui) ---
+% Títulos na mesma família do corpo (Arial ou Times), não em sans-serif extra.
+\renewcommand{\ABNTEXchapterfont}{\normalfont}
+
+% --- Identificação (edite aqui) ---
+\newcommand{\universidade}{Nome da Universidade}
+\newcommand{\disciplina}{Nome da disciplina}
+\newcommand{\professor}{Nome do professor}
+\newcommand{\estudante}{Nome completo do estudante}
+\newcommand{\matricula}{000000000}
+
 \titulo{Título do artigo}
 \tituloestrangeiro{Article title in English}
-\autor{Nome do Autor}
+\autor{\estudante}
+\instituicao{\universidade}
 \local{Brasil}
 \data{2026}
 
@@ -36,13 +51,38 @@
 }
 \makeatother
 
-\setlength{\parindent}{1.3cm}
-\SingleSpacing
+% Corpo 12pt, entrelinha 1,5, recuo de 1,25 cm, texto justificado.
+% Margens 3 cm (superior/esquerda) e 2 cm (inferior/direita): padrão abnTeX2.
+% Citações longas, notas e paginação: 10pt (\ABNTEXfontereduzida).
+% Citações longas e referências: espaçamento simples (citacao / abntex2cite).
+\OnehalfSpacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+\renewcommand{\imprimircapa}{%
+  \begin{capa}
+    \begin{center}
+      {\large\bfseries\MakeUppercase{\universidade}\par}
+      \vspace{1.5cm}
+      Disciplina: \disciplina\par
+      Professor(a): \professor\par
+      \vspace{2.5cm}
+      {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo\par}
+      \vfill
+      {\large\estudante\par}
+      Matrícula: \matricula\par
+      \vfill
+      {\large\imprimirlocal\par}
+      {\large\imprimirdata\par}
+    \end{center}
+  \end{capa}
+}
 
 \begin{document}
 \selectlanguage{brazil}
 \frenchspacing
 
+\imprimircapa
 \maketitle
 
 \begin{resumoumacoluna}
@@ -70,7 +110,16 @@ Texto introdutório. Exemplo de citação: \cite{exemplo2020}.
 
 \section{Desenvolvimento}
 
-Desenvolva o conteúdo do artigo aqui.
+Desenvolva o conteúdo do artigo aqui. Parágrafos do corpo usam tamanho 12,
+espaçamento 1,5 e recuo de 1,25\,cm na primeira linha.
+
+\begin{citacao}
+Exemplo de citação direta longa (mais de três linhas): tamanho 10,
+espaçamento simples e recuo em relação à margem. Substitua este bloco
+pelo trecho citado \cite{exemplo2020}.
+\end{citacao}
+
+Continuação do texto após a citação longa.
 
 \section{Considerações finais}
 

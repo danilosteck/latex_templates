@@ -9,22 +9,36 @@
   brazil
 ]{abntex2}
 
-\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+
+% Fonte: Times New Roman (padrão). Para Arial, comente TIMES e descomente ARIAL.
+\usepackage{newtxtext,newtxmath}          % TIMES
+% \usepackage[scaled=0.95]{helvet}        % ARIAL
+% \renewcommand{\familydefault}{\sfdefault}
+
 \usepackage{indentfirst}
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage[alf]{abntex2cite}
 
-% --- Metadados (edite aqui) ---
+% Títulos na mesma família do corpo (Arial ou Times), não em sans-serif extra.
+\renewcommand{\ABNTEXchapterfont}{\normalfont}
+
+% --- Identificação (edite aqui) ---
+\newcommand{\universidade}{Nome da Universidade}
+\newcommand{\disciplina}{Nome da disciplina}
+\newcommand{\professor}{Nome do professor}
+\newcommand{\estudante}{Nome completo do estudante}
+\newcommand{\matricula}{000000000}
+
 \titulo{Título do trabalho}
-\autor{Nome do Autor}
+\autor{\estudante}
 \local{Cidade}
 \data{2026}
-\orientador{Nome do Orientador}
+\orientador{\professor}
 \instituicao{%
-  Nome da Universidade
+  \universidade
   \par
   Nome do Programa / Faculdade
 }
@@ -44,8 +58,70 @@ como requisito parcial para obtenção do título de Mestre em Z.}
 }
 \makeatother
 
-\setlength{\parindent}{1.3cm}
-\setlength{\parskip}{0.2cm}
+% Corpo 12pt, entrelinha 1,5, recuo de 1,25 cm, texto justificado.
+% Margens 3 cm (superior/esquerda) e 2 cm (inferior/direita): padrão abnTeX2.
+% Citações longas, notas e paginação: 10pt (\ABNTEXfontereduzida).
+% Citações longas e referências: espaçamento simples (citacao / abntex2cite).
+\OnehalfSpacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+
+\renewcommand{\imprimircapa}{%
+  \begin{capa}
+    \begin{center}
+      {\large\bfseries\MakeUppercase{\universidade}\par}
+      \vspace{1.5cm}
+      Disciplina: \disciplina\par
+      Professor(a): \professor\par
+      \vspace{2.5cm}
+      {\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo\par}
+      \vfill
+      {\large\estudante\par}
+      Matrícula: \matricula\par
+      \vfill
+      {\large\imprimirlocal\par}
+      {\large\imprimirdata\par}
+    \end{center}
+  \end{capa}
+}
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor\par}
+    Matrícula: \matricula
+
+    \vspace*{\fill}\vspace*{\fill}
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.45\textwidth}
+      \begin{minipage}{.5\textwidth}
+        \SingleSpacing
+         \imprimirpreambulo
+       \end{minipage}%
+       \vspace*{\fill}
+    }%
+
+    {\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
+    Disciplina: \disciplina\par
+    {\large\imprimirorientadorRotulo~\imprimirorientador\par}
+    \abntex@ifnotempty{\imprimircoorientador}{%
+       {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+    }%
+    \vspace*{\fill}
+
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+}
+\makeatother
 
 \begin{document}
 \selectlanguage{brazil}
@@ -80,7 +156,14 @@ Texto introdutório. Exemplo de citação: \cite{exemplo2020}.
 
 \section{Objetivos}
 
-Descreva os objetivos do trabalho.
+Descreva os objetivos do trabalho. Parágrafos do corpo usam tamanho 12,
+espaçamento 1,5 e recuo de 1,25\,cm na primeira linha.
+
+\begin{citacao}
+Exemplo de citação direta longa (mais de três linhas): tamanho 10,
+espaçamento simples e recuo em relação à margem. Substitua este bloco
+pelo trecho citado \cite{exemplo2020}.
+\end{citacao}
 
 \chapter{Desenvolvimento}
 
