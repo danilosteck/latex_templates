@@ -18,6 +18,11 @@ _PROVIDER_KEY_ENV = {
     "gemini": "GEMINI_API_KEY",
     "openai": "OPENAI_API_KEY",
     "anthropic": "ANTHROPIC_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
+}
+
+_PROVIDER_DEFAULT_BASE = {
+    "deepseek": "https://api.deepseek.com",
 }
 
 
@@ -27,6 +32,7 @@ class Settings:
     model: str
     api_key: str
     max_input_tokens: int
+    base_url: str | None = None
 
     @property
     def is_configured(self) -> bool:
@@ -43,6 +49,7 @@ def get_settings() -> Settings:
     provider = os.getenv("LLM_PROVIDER", "gemini").strip().lower()
     model = os.getenv("LLM_MODEL", "gemini-2.5-flash").strip()
     api_key = os.getenv(_PROVIDER_KEY_ENV.get(provider, "GEMINI_API_KEY"), "").strip()
+    base_url = os.getenv("LLM_BASE_URL", "").strip() or _PROVIDER_DEFAULT_BASE.get(provider)
     try:
         max_input_tokens = int(os.getenv("MAX_INPUT_TOKENS", "12000"))
     except ValueError:
@@ -52,6 +59,7 @@ def get_settings() -> Settings:
         model=model,
         api_key=api_key,
         max_input_tokens=max_input_tokens,
+        base_url=base_url,
     )
 
 

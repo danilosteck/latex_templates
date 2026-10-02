@@ -44,7 +44,16 @@ def get_provider() -> LLMProvider:
 
         return GeminiProvider(api_key=settings.api_key, modelo=settings.model)
 
+    if settings.provider in ("openai", "deepseek"):
+        from study.llm.openai_provider import OpenAIProvider
+
+        return OpenAIProvider(
+            api_key=settings.api_key,
+            modelo=settings.model,
+            base_url=settings.base_url,
+        )
+
     raise LLMError(
         f"Provedor '{settings.provider}' ainda nao implementado. "
-        "Use LLM_PROVIDER=gemini ou adicione um modulo em study/llm/."
+        "Use LLM_PROVIDER=gemini, openai ou deepseek."
     )
