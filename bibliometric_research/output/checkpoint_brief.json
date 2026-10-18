@@ -1,0 +1,4 @@
+{
+  "summary": "Study: # Study Brief\n\n> Fill this in for each study. Keep it short — it is sent to agents as context,\n> so brevity saves tokens. Copy this folder for a new study.\n\n## Study object\n\n<!-- One or two sentences.\nSources: ['scielo', 'scopus', 'web_of_science', 'sciencedirect', 'google_scholar', 'crossref', 'openalex', 'web']",
+  "artifact": {}
+}

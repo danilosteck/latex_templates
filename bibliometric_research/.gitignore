@@ -1,0 +1,9 @@
+# Ignore generated and secret files.
+cache/
+registry/
+output_*/
+config.yaml
+.env
+__pycache__/
+*.pyc
+.venv/

@@ -1,0 +1,63 @@
+# ---------------------------------------------------------------------------
+# config.example.yaml  →  copy to config.yaml and edit.
+# Non-secret settings only. API keys are read from environment variables.
+#
+# Expected environment variables (set them in your shell or a local .env file
+# that you do NOT commit):
+#   ANTHROPIC_API_KEY, OPENAI_API_KEY, DEEPSEEK_API_KEY, GOOGLE_API_KEY
+#   ELSEVIER_API_KEY (Scopus), WOS_API_KEY (Web of Science)
+#   CROSSREF_MAILTO, OPENALEX_MAILTO (polite contact email)
+# ---------------------------------------------------------------------------
+
+# Which provider to use: mock | anthropic | openai | deepseek | google
+provider: mock
+
+# Model names are provider-specific; fill the one you use.
+models:
+  mock: "mock-1"
+  anthropic: "claude-sonnet-4-5"
+  openai: "gpt-4o-mini"
+  deepseek: "deepseek-chat"
+  google: "gemini-1.5-flash"
+
+# Default max output tokens per call (keeps responses bounded → saves tokens).
+max_output_tokens: 1500
+
+# ---------------------------------------------------------------------------
+# Retrieval
+# ---------------------------------------------------------------------------
+retrieval:
+  # Source priority order (per-study override in study/brief.md).
+  sources:
+    - scielo
+    - scopus
+    - web_of_science
+    - sciencedirect
+    - google_scholar
+    - crossref
+    - openalex
+    - web
+  max_fetches: 40          # hard cap on network fetches per run
+  results_per_query: 10    # hits to request per source per query
+  max_excerpt_words: 80    # words kept verbatim per evidence item
+  chunk_words: 350         # target words per chunk when splitting documents
+
+# ---------------------------------------------------------------------------
+# Orchestration
+# ---------------------------------------------------------------------------
+orchestration:
+  max_rounds: 3            # Builder<->Critic iterations
+  token_budget: 200000     # soft limit; orchestrator asks before exceeding
+  checkpoints:
+    enabled: true          # pause for human confirmation at key points
+    stop_after_brief: true
+    stop_after_retrieval: true
+    stop_after_draft: true
+    stop_after_critic: true
+
+# ---------------------------------------------------------------------------
+# Cache
+# ---------------------------------------------------------------------------
+cache:
+  dir: "cache"
+  ttl_days: 0              # 0 = never expire (recommended: sources are stable)

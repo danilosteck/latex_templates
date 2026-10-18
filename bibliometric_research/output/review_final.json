@@ -1,0 +1,33 @@
+{
+  "round": 1,
+  "overall": "minor",
+  "findings": [
+    {
+      "severity": "info",
+      "location": "n/a",
+      "issue": "critic model error: LLMError",
+      "suggestion": "inspect logs"
+    }
+  ],
+  "local": {
+    "cited_count": 7,
+    "missing_ids": [],
+    "uncited_paragraphs": [
+      "**Questions.** (Q1) How are LLM-based agents applied to literature review and bi",
+      "- **Methodological (automation vs human-in-the-loop).** No representative source",
+      "All other candidate challenges (hallucinated citations, coverage bias in databas",
+      "The evidence does not cover, at all: agent architectures for search/screening/ex"
+    ],
+    "headings": [
+      "LLM-based AI agents for literature research and bibliometric analysis — viewpoint map (v1)",
+      "1. Scope & method",
+      "2. Landscape overview",
+      "3. Map of viewpoints",
+      "4. Points of agreement and contestation",
+      "5. MPAs",
+      "6. Technical challenges & open problems",
+      "7. Gaps & under-explored angles",
+      "8. Reference list"
+    ]
+  }
+}

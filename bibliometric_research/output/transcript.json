@@ -1,0 +1,25 @@
+{
+  "provider": "deepseek",
+  "calls": 4,
+  "tokens_used": 936325,
+  "steps": [
+    {
+      "stage": "retrieval",
+      "evidence_new": 50,
+      "papers": 11,
+      "fetches": 0,
+      "warnings": [
+        "fetch failed https://doi.org/10.1136/bmjdhai-2025-000017: HTTPError",
+        "no text (abstract/full) for p_c026e875051bc8a2 (openalex)",
+        "max_fetches=12 reached; stopping retrieval.",
+        "max_fetches=12 reached; stopping retrieval."
+      ]
+    },
+    {
+      "stage": "round_1",
+      "overall": "minor",
+      "findings": 1,
+      "tokens_used": 936325
+    }
+  ]
+}

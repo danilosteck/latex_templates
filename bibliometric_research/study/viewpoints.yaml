@@ -1,0 +1,14 @@
+# Optional seed list of expected/known viewpoints.
+# The Builder is not limited to these — they are hints and a completeness check
+# for the Critic ("did we cover the expected axes?").
+viewpoints:
+  - label: "Enthusiast / accelerationist"
+    description: "Sees the object as a major positive capability shift."
+    note: ""
+  - label: "Skeptical / cautious"
+    description: "Focuses on limitations, risk, and premature adoption."
+    note: ""
+  - label: "Critical / socio-technical"
+    description: "Situates the object in power, labor, and equity questions."
+    note: ""
+# Add, remove, or rename freely per study.
