@@ -12,3 +12,13 @@ Requirements:
 1. The project must be built focusing on optimizing token consumption. Use local caches for anything that is consulted on internet or documents such as PDF and DOCX files (among others).
 2. Major focus on indexed paper sources (SCIELO, Web of Science, ScienceDirect / Scopus, Google Scholar, among other major references). 
 3. I want a detailed record keeping of the papers analysed and I want them to be traceable and a method of validation if the source exists.
+
+
+# Build app
+I want to convert this into an app that can be used by other people, with an UI that users can fill information on what they need to research. Important features to have:
+1. Adjust the agents directly through UI (field boxes that alter the .md files)
+2. Initial form with essential information about what will be researched.
+3. Manage projects. Each project must have their own inputs, outputs, evidences.
+4. An installation process or similar so that non-tech-savvyy users can use as well.
+
+For now, what I need: a robust plan so I can adjust before building.
