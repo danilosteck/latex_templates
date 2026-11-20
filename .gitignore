@@ -20,4 +20,4 @@ Thumbs.db
 
 # Test folder
 ./test*
-test*
+/test/
