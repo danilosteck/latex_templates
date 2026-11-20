@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/api.ts","./src/i18n.ts","./src/main.tsx","./src/md.tsx","./src/types.ts","./src/ui.tsx","./src/components/BriefForm.tsx","./src/screens/AgentEditor.tsx","./src/screens/ProjectView.tsx","./src/screens/Projects.tsx","./src/screens/RunPanel.tsx","./src/screens/Settings.tsx","./src/screens/Wizard.tsx"],"version":"5.9.3"}

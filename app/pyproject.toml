@@ -1,0 +1,35 @@
+[project]
+name = "bibstudio"
+version = "0.1.0"
+description = "Bibliometric Studio — multi-agent, multi-viewpoint literature research with a local UI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "pydantic>=2.6",
+    "httpx>=0.27",
+    "PyYAML>=6.0",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+pdf = ["pypdf>=4.2"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+bibstudio = "bibstudio.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bibstudio*"]
+
+[tool.setuptools.package-data]
+bibstudio = ["defaults/**/*", "web/**/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
